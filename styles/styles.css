@@ -1,0 +1,187 @@
+/* Import the Super Caramel font */
+@font-face {
+  font-family: "Super Caramel";
+  src: url("../src/Super Caramel.ttf") format("truetype");
+}
+
+/* Make sure the body stretches the entire viewport height */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevents scrolling */
+  font-family: Arial, sans-serif;
+  position: relative; /* Set position relative to enable absolute positioning for the pseudo-element */
+  background-color: black;
+}
+
+/* Set the background with transparency */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../src/bg.gif") no-repeat center center fixed;
+  background-size: cover; /* Ensures the background stretches to cover the entire viewport */
+  opacity: 0.7; /* Adjust the opacity value (0.0 to 1.0) to set the transparency level */
+}
+
+/* Center the images */
+.container {
+  position: relative;
+  width: 100%;
+  height: calc(
+    100% - 200px
+  ); /* Leaves space for the footer and social footer */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style for the text */
+.text {
+  font-family: "Super Caramel", sans-serif;
+  font-size: 100px;
+  color: transparent; /* Makes the text color transparent */
+  position: absolute;
+  top: 18%; /* Adjust this value to control the vertical position */
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers the text horizontally */
+  z-index: 4; /* Ensure the text is on top of everything */
+  padding-bottom: 5%;
+  background: linear-gradient(
+    135deg,
+    #ffb6c1,
+    #ff6347,
+    #ffd700,
+    #adff2f,
+    #00bfff,
+    #8a2be2,
+    #ff69b4,
+    #ff4500
+  );
+  background-clip: text; /* Clips the background to the text */
+  -webkit-background-clip: text; /* For Safari/Chrome */
+  font-weight: bold; /* Optional: makes the text bolder */
+  letter-spacing: 0.2em;
+}
+
+.text2 {
+  font-family: "Super Caramel", sans-serif;
+  font-size: 20px;
+  color: transparent; /* Makes the text color transparent */
+  position: absolute;
+  top: 28%; /* Adjust this value to control the vertical position */
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers the text horizontally */
+  z-index: 4; /* Ensure the text is on top of everything */
+  padding-bottom: 5%;
+  background: linear-gradient(
+    135deg,
+    #ffb6c1,
+    #ff6347,
+    #ffd700,
+    #adff2f,
+    #00bfff,
+    #8a2be2,
+    #ff69b4,
+    #ff4500
+  );
+  background-clip: text; /* Clips the background to the text */
+  -webkit-background-clip: text; /* For Safari/Chrome */
+  font-weight: bold; /* Optional: makes the text bolder */
+  letter-spacing: 0.2em;
+}
+
+/* Style for the main image (front) */
+.image-front,
+.image-back,
+.image-back2 {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Centers the images exactly in the middle */
+}
+
+.image-front {
+  z-index: 3; /* Ensures main.png is on top */
+}
+
+.image-back {
+  z-index: 2; /* Ensures first main2.png is behind main.png */
+  opacity: 0.7; /* Optional: make it slightly transparent */
+  animation: rotateClockwise 10s linear infinite; /* Rotates clockwise */
+}
+
+.image-back2 {
+  z-index: 1; /* Ensures second main2.png is behind first main2.png */
+  opacity: 0.7; /* Optional: make it slightly transparent */
+  animation: rotateCounterClockwise 10s linear infinite; /* Rotates counterclockwise */
+}
+
+/* Keyframes for clockwise rotation */
+@keyframes rotateClockwise {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Keyframes for counterclockwise rotation */
+@keyframes rotateCounterClockwise {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+/* Social media footer styles */
+.social-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Adjust height as needed */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.8
+  ); /* Slightly transparent black background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5; /* Ensures it is on top */
+  border-top: 1px solid grey;
+}
+
+.socials {
+  display: flex;
+  gap: 20px; /* Space between icons */
+}
+
+/* Specific size adjustments for social media icons */
+.socials a img {
+  width: 40px; /* Base size for icons */
+  height: 40px;
+}
+
+.socials a img:hover {
+  opacity: 0.5;
+}
+
+/* Ensures tg.png is larger than x.png */
+
+.socials a img.x {
+  width: 40px; /* Size for X icon */
+  height: 43px;
+}
